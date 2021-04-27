@@ -13,37 +13,23 @@ const EasterEggTrigger = {
 	},
 
 	// Options //
-	defaultOptions: {
-		egg: {
-			callback: null,
-			destroyBus: false,
-			keys: false,
-			name: 'easter-egg',
-			pattern: false,
-			target: 'html',
-			withBus: true,
-		},
-		plugin: {
-			delay: 500,
-			keys: ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'],
-			mouseEvents: [
-				'click', // Works with multiple single clicks pattern
-				'dblclick', // Only works with single double click pattern set
-				'mouseup', // Works with multiple mouseup clicks pattern
-				'mousedown', // Works with multiple mousedown clicks pattern
-			],
-			pattern: [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
-			type: 'keydown',
-		},
+	defaultEggOptions: {
+		callback: null,
+		destroyBus: false,
+		keys: false,
+		name: 'easter-egg',
+		pattern: false,
+		target: 'html',
+		withBus: true,
 	},
 	eggOptions: {},
 	pluginOptions: {},
 
 	// Initiate Eggs //
-	init(vue, pluginOptions, eggOptions = {}) {
+	init(pluginOptions = {}, eggOptions = {}) {
 		// Set Options //
-		this.pluginOptions = { ...this.defaultOptions.plugin, ...pluginOptions };
-		this.eggOptions = { ...this.defaultOptions.egg, ...eggOptions };
+		this.pluginOptions = pluginOptions;
+		this.eggOptions = { ...this.defaultEggOptions, ...eggOptions };
 
 		this.layEggs();
 	},
@@ -61,8 +47,8 @@ const EasterEggTrigger = {
 			const newEgg = egg;
 
 			if (!newEgg.keys && !newEgg.pattern) {
-				newEgg.keys = this.defaultOptions.plugin.keys;
-				newEgg.pattern = this.defaultOptions.plugin.pattern;
+				newEgg.keys = this.pluginOptions.keys;
+				newEgg.pattern = this.pluginOptions.pattern;
 			}
 		});
 
@@ -93,7 +79,7 @@ const EasterEggTrigger = {
 		}
 
 		// -------------------- Mouse Events //
-		if (_.includes(EasterEggTrigger.defaultOptions.plugin.mouseEvents, e.type)) {
+		if (_.includes(EasterEggTrigger.pluginOptions.mouseEvents, e.type)) {
 			key = e.type;
 
 			EasterEggTrigger.targets.nodes.push(e.target.nodeName.toLowerCase());
