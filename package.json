@@ -3,7 +3,7 @@
 	"version": "0.1.16",
 	"description": "This packages makes it nice and easy to add Easter Egg triggers to your Vue site.",
 	"private": false,
-	"main": "dist/index.js",
+	"main": "dist/vue-easter-egg-trigger.js",
 	"types": "types/index.d.ts",
 	"scripts": {
 		"serve": "npm run development",
