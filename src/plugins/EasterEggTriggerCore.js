@@ -1,8 +1,8 @@
 // import Vue from 'vue';
 import _ from '@assets/lodash.custom';
 
-let VueObj = null;
-let easterEggs = [];
+let EasterEggTriggerVueObj = null;
+let easterEggsTriggerEggs = [];
 
 const EasterEggTrigger = {
 	timeout: null,
@@ -20,7 +20,7 @@ const EasterEggTrigger = {
 		keys: false,
 		name: 'easter-egg',
 		pattern: false,
-		target: 'html',
+		target: 'div',
 		withBus: true,
 	},
 	eggOptions: {},
@@ -28,7 +28,7 @@ const EasterEggTrigger = {
 
 	// Initiate Eggs //
 	init(Vue, pluginOptions = {}, eggOptions = {}) {
-		VueObj = Vue;
+		EasterEggTriggerVueObj = Vue;
 
 		// Set Options //
 		this.pluginOptions = pluginOptions;
@@ -39,14 +39,14 @@ const EasterEggTrigger = {
 
 	// Adds Eggs to Easter Eggs //
 	layEggs() {
-		easterEggs.push(this.eggOptions);
+		easterEggsTriggerEggs.push(this.eggOptions);
 
 		this.callAddListener();
 	},
 
 	// Call the add listener //
 	callAddListener() {
-		Object.values(easterEggs).forEach((egg) => {
+		Object.values(easterEggsTriggerEggs).forEach((egg) => {
 			const newEgg = egg;
 
 			if (!newEgg.keys && !newEgg.pattern) {
@@ -96,7 +96,7 @@ const EasterEggTrigger = {
 
 	// Check the Keys or Click Pattern //
 	checkPattern(e) {
-		Object.values(easterEggs).forEach((egg) => {
+		Object.values(easterEggsTriggerEggs).forEach((egg) => {
 			// Check Keyboard Events //
 			if (_.isEqual(egg?.keys, this.input) || _.isEqual(egg?.pattern, this.input)) {
 				// Check Targets if Mouse Events //
@@ -157,7 +157,7 @@ const EasterEggTrigger = {
 
 	// Emit Bus Event and/or Callback //
 	emit(egg) {
-		if (Object.keys(easterEggs).length === 1) {
+		if (Object.keys(easterEggsTriggerEggs).length === 1) {
 			document.removeEventListener(this.pluginOptions.type, this.capturePattern, false);
 		}
 		else {
@@ -172,11 +172,11 @@ const EasterEggTrigger = {
 			}
 		}
 
-		new VueObj().$bus.$emit(`${egg.name}`);
+		new EasterEggTriggerVueObj().$bus.$emit(`${egg.name}`);
 
 		// Auto destroy $bus.$on //
 		if (egg.destroyBus) {
-			new VueObj().$bus.$off(`${egg.name}`);
+			new EasterEggTriggerVueObj().$bus.$off(`${egg.name}`);
 		}
 
 		return false;
@@ -184,10 +184,10 @@ const EasterEggTrigger = {
 
 	// Rebuild the Easter Eggs //
 	rebuild(usedEgg) {
-		const currentEggs = easterEggs;
-		easterEggs = [];
+		const currentEggs = easterEggsTriggerEggs;
+		easterEggsTriggerEggs = [];
 
-		// Remove usedEgg from easterEggs  //
+		// Remove usedEgg from easterEggsTriggerEggs  //
 		const idx = _.findIndex(currentEggs, (egg) => egg.name === usedEgg.name);
 		currentEggs.splice(idx, 1);
 
@@ -195,7 +195,7 @@ const EasterEggTrigger = {
 			this.layEggs(egg);
 		});
 
-		easterEggs = currentEggs;
+		easterEggsTriggerEggs = currentEggs;
 	},
 };
 
