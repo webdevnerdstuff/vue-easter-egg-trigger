@@ -54,7 +54,7 @@ destroyBus    | Boolean  | false      | Determines if a bus $on event is destroy
 keys          | Array    | false      | The key/click combination a user does to trigger easter egg.
 name          | String   | easter-egg | Identifier & used for even bus callback
 pattern       | Array    | false      | The key combination a user does to trigger easter egg. (fallback for keys)
-target        | String   | html       | Use this to target DOM elements, Id's, or Class Names. Used with click events.
+target        | String   | div        | Use this to target DOM elements, Id's, or Class Names. Used with click events.
 withBus       | Boolean  | true       | Determines if a bus event is emitted
 <br>
 
