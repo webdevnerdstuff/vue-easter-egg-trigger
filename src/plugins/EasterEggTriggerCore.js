@@ -1,6 +1,7 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 import _ from '@assets/lodash.custom';
 
+let VueObj = null;
 let easterEggs = [];
 
 const EasterEggTrigger = {
@@ -26,7 +27,9 @@ const EasterEggTrigger = {
 	pluginOptions: {},
 
 	// Initiate Eggs //
-	init(pluginOptions = {}, eggOptions = {}) {
+	init(Vue, pluginOptions = {}, eggOptions = {}) {
+		VueObj = Vue;
+
 		// Set Options //
 		this.pluginOptions = pluginOptions;
 		this.eggOptions = { ...this.defaultEggOptions, ...eggOptions };
@@ -169,11 +172,11 @@ const EasterEggTrigger = {
 			}
 		}
 
-		new Vue().$bus.$emit(`${egg.name}`);
+		new VueObj().$bus.$emit(`${egg.name}`);
 
 		// Auto destroy $bus.$on //
 		if (egg.destroyBus) {
-			new Vue().$bus.$off(`${egg.name}`);
+			new VueObj().$bus.$off(`${egg.name}`);
 		}
 
 		return false;
