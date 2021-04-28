@@ -90,7 +90,7 @@
 		"vue-style-loader": "^4.1.2",
 		"vue-template-compiler": "^2.6.12",
 		"vue-test-utils": "^1.0.0-beta.11",
-		"vuepress": "^1.5.2",
+		"vuepress": "^2.0.0-beta.10",
 		"webpack": "^5.35.1",
 		"webpack-cli": "^4.6.0",
 		"webpack-dev-server": "^3.11.2",
