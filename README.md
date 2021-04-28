@@ -26,10 +26,10 @@ Vue.use(EasterEggTrigger);
  
 Name    | Type    | Default  | Description
 :-----  | :------ | :-----   | :-----
-delay   | Integer | 500 | Determins the timeout before the event lister resets
-keys    | Array   | ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'] | The keys a user needs to enter to trigger the easter egg. The default combination is the konami code.
-pattern | Array   |  [38, 38, 40, 40, 37, 39, 37, 39, 66, 65] | The keyCode a user enters to trigger the easter egg. This is a fallback for the keys option as it is depreciated.
-type    | String  | keydown | The type of action the trigger will be listening for
+delay   | Integer | 500 | Determines the timeout before the event lister resets.
+keys    | Array   | ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'] | The key/click combination a user does to trigger easter egg. The default combination is the konami code.
+pattern | Array   |  [38, 38, 40, 40, 37, 39, 37, 39, 66, 65] | The key combination a user does to trigger easter egg. (fallback for keys)
+type    | String  | keydown | The type of action the trigger will be listening for.
  
 ##### Overriding the plugin default options
  
@@ -176,6 +176,10 @@ this.$easterEgg({
 ## More Examples
  
 You can find more examples in the [EasterEgg.vue](https://github.com/webdevnerdstuff/vue-easter-egg-trigger/blob/main/src/components/EasterEgg.vue) file.
+ 
+## Demo
+ 
+Coming soon to a farm near you.
  
 ## Change Log
 
