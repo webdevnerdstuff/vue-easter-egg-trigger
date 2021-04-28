@@ -11,16 +11,11 @@ const EasterEggTrigger = {
 
 		// Add an instance methods //
 		Vue.prototype.$easterEgg = function(eggOptions) {
-			const pluginOptions = EasterEggTrigger.options;
-
-			EasterEggTriggerCore.init(Vue, pluginOptions, eggOptions);
+			EasterEggTriggerCore.init(Vue, EasterEggTrigger.options, eggOptions);
 		};
 
 		Vue.prototype.$easterEggTrigger = function(eggOptions) {
-			const pluginOptions = EasterEggTrigger.options;
-			EasterEggTriggerCore.init(Vue, pluginOptions, eggOptions);
-			// plugin.setEggOptions(methodOptions);
-			// plugin.callAddListener();
+			EasterEggTriggerCore.init(Vue, EasterEggTrigger.options, eggOptions);
 		};
 	},
 	options: {
