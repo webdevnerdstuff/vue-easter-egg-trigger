@@ -4,15 +4,13 @@
 	"description": "This packages makes it nice and easy to add Easter Egg triggers to your Vue site.",
 	"private": false,
 	"main": "dist/vue-easter-egg-trigger.js",
-	"types": "types/index.d.ts",
 	"scripts": {
 		"serve": "npm run development",
 		"watch": "npm run development",
 		"dev": "npm run development",
 		"development": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.config.js",
 		"build:release": "webpack --config ./build/webpack.release.config.js --progress",
-		"build:ssr": "webpack --config ./build/webpack.ssr.config.js --progress",
-		"build": "npm run build:release && npm run build:ssr",
+		"build": "npm run build:release",
 		"docs:dev": "vuepress dev docs",
 		"docs:build": "vuepress build docs"
 	},
