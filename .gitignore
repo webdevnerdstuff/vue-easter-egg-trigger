@@ -26,3 +26,4 @@ pnpm-debug.log*
 docs
 # docs/.vuepress/dist
 demo/dist/*
+node_modules\n.temp\n.cache
