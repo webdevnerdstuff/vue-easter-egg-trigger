@@ -50,7 +50,9 @@
 		"egg",
 		"eggs",
 		"eggs",
-		"trigger"
+		"trigger",
+		"webdevnerdstuff",
+		"wdns"
 	],
 	"dependencies": {
 		"cross-env": "^7.0.3",
