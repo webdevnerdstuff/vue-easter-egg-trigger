@@ -179,7 +179,7 @@ You can find more examples in the [EasterEgg.vue](https://github.com/webdevnerds
  
 ## Demo
  
-Coming soon to an animal santuary near you.
+Coming soon to an animal sanctuary near you.
  
 ## Change Log
 
