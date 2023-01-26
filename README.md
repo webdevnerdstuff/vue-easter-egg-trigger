@@ -4,7 +4,7 @@ Vue Easter Egg Trigger
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/webdevnerdstuff/vue-easter-egg-trigger) [![NPM_PACKAGE](https://img.shields.io/badge/NPM%20-Package-%23cb3837)](https://www.npmjs.com/package/vue-easter-egg-trigger) [![GitHub license](https://img.shields.io/github/license/webdevnerdstuff/vue-easter-egg-trigger)](https://github.com/webdevnerdstuff/vue-easter-egg-trigger/blob/main/LICENSE.md)
 
-This packages makes it nice and easy to add Easter Egg triggers to your Vue site.
+This packages makes it nice and easy to add Easter Egg triggers to your Vue 2 site. Looking for the Vue 3 version? You can find it [here](https://github.com/webdevnerdstuff/vue3-easter-egg-trigger).
 
 
 ### Installation
