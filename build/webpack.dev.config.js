@@ -68,10 +68,30 @@ module.exports = merge(base, {
 	context: path.join(__dirname, '../src'),
 	devServer: {
 		compress: true,
-		contentBase: path.join(__dirname, '../docs'),
-		quiet: false,
-		writeToDisk: true,
+		static: {
+			directory: path.join(__dirname, '../docs'),
+		},
+		devMiddleware: {
+			writeToDisk: true,
+		},
+		client: {
+			overlay: {
+				errors: true,
+				warnings: false,
+			},
+		},
 	},
+	ignoreWarnings: [
+		{
+			module: /module2\.js\?[34]/, // A RegExp
+		},
+		{
+			module: /[13]/,
+			message: /homepage/,
+		},
+		/warning from compiler/,
+		(warning) => true,
+	],
 	devtool: 'source-map',
 	entry: '../src/main.js',
 	output: {
@@ -101,6 +121,6 @@ module.exports = merge(base, {
 		publicPath: false,
 		usedExports: false,
 		version: false,
-		warnings: true,
+		warnings: false,
 	},
 });

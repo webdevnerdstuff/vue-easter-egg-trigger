@@ -30,18 +30,15 @@ const jsRule = {
 
 /*
  |--------------------------------------------------------------------------
- | Typescript Rule
+ | Style Rule
  |--------------------------------------------------------------------------
  */
-const tsRule = {
-	test: /\.ts$/,
-	use: {
-		loader: 'bts-loader',
-		options: {
-			appendTsSuffixTo: [/\.vue$/],
-		},
-	},
-	exclude: /node_modules/,
+const styleRule = {
+	test: /\.css$/,
+	use: [
+		'vue-style-loader',
+		'css-loader',
+	],
 };
 
 module.exports = {
@@ -67,7 +64,7 @@ module.exports = {
 		rules: [
 			vueRule,
 			jsRule,
-			tsRule,
+			styleRule,
 		],
 	},
 	plugins: [new VueLoaderPlugin()],
