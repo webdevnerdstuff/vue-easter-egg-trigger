@@ -1,27 +1,16 @@
 <template>
-	<div>
-		<EasterEgg />
+	<div id="app-inner">
+		<HelloWorld />
 	</div>
 </template>
 
 <script>
-import Vue from 'vue';
-import EasterEgg from '@components/EasterEgg.vue';
-
-const EventBus = new Vue();
-
-Object.defineProperties(Vue.prototype, {
-	$bus: {
-		get() {
-			return EventBus;
-		},
-	},
-});
+import HelloWorld from '@components/HelloWorld.vue';
 
 export default {
 	name: 'App',
 	components: {
-		EasterEgg,
+		HelloWorld,
 	},
 };
 </script>
