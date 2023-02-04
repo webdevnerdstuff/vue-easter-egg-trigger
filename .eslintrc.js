@@ -17,15 +17,13 @@ module.exports = {
 			files: [
 				'**/*.spec.{j,t}s?(x)',
 			],
-			env: {
-				jest: true,
-			},
 		},
 	],
 	parser: 'vue-eslint-parser',
 	parserOptions: {
 		parser: '@babel/eslint-parser',
 		ecmaVersion: 12,
+		requireConfigFile: false,
 		sourceType: 'module',
 	},
 	plugins: [
