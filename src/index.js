@@ -1,17 +1,10 @@
 import EasterEggComponent from './components/EasterEggComponent.vue';
 import EasterEggTriggerCore from './plugin/index';
 
-let defaultOptions = {
-	callback: null,
-	delay: 500,
-	destroyBus: false,
-	name: 'easter-egg',
-	pattern: ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'],
-	pattern: false,
-	target: 'div',
-	type: 'keydown',
-	withBus: true,
-};
+console.group('index.js');
+console.log({ EasterEggTriggerCore });
+
+let globalOptions = {};
 
 const EasterEggTrigger = {
 	install(Vue, options = {}) {
@@ -20,8 +13,7 @@ const EasterEggTrigger = {
 		}
 
 		// Set the Global options //
-		defaultOptions = { ...defaultOptions, ...options };
-
+		globalOptions = options;
 
 		Vue.component(EasterEggComponent.name, EasterEggComponent);
 
@@ -34,23 +26,24 @@ const EasterEggTrigger = {
 		Vue.directive('easter-egg-trigger-directive', {
 			bind(el, binding, vnode, oldVnode) {
 				// some logic ...
-			}
+			},
 		});
 
 		// 3. Inject some component options
 		Vue.mixin({
-			created: function() {
+			created() {
 				// some logic ...
-			}
+			},
 		});
 
 		// 4. add an instance method
 		Vue.prototype.$easterEgg = function(methodOptions) {
-			EasterEggTriggerCore.init(Vue, defaultOptions, methodOptions);
+			console.log('$easterEgg instance method loaded');
+			EasterEggTriggerCore.init(globalOptions, methodOptions);
 		};
 
 		Vue.prototype.$easterEggTrigger = function(methodOptions) {
-			EasterEggTriggerCore.init(Vue, defaultOptions, methodOptions);
+			EasterEggTriggerCore.init(globalOptions, methodOptions);
 		};
 	},
 };
@@ -61,3 +54,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default EasterEggTrigger;
+
+console.groupEnd('index.js');

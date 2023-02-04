@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import EasterEggTriggerCore from '@/plugin/index';
+import EasterEggTriggerCore from '../plugin/index';
 
 export default {
 	name: 'EasterEggComponent',
@@ -14,7 +14,7 @@ export default {
 	computed: {},
 	watch: {},
 	created() {
-
+		console.log('EasterEggComponent created');
 	},
 	mounted() { },
 	methods: {

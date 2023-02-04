@@ -63,6 +63,8 @@
 		</div>
 
 		<footer>&copy; 2022 WebDevNerdStuff</footer>
+
+		<EasterEggComponent :pattern="['ArrowDown', 'ArrowDown']" />
 	</div>
 </template>
 
@@ -75,7 +77,12 @@ export default {
 	data: () => ({}),
 	computed: {},
 	watch: {},
-	mounted() { },
+	mounted() {
+		this.$easterEgg({
+			name: 'method name',
+			pattern: ['ArrowUp', 'ArrowUp'],
+		});
+	},
 	methods: {
 	},
 };
