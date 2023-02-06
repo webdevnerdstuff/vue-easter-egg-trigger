@@ -32,7 +32,7 @@ const eslintOptions = {
 const htmlWebpackOptions = {
 	inject: 'body',
 	template: '../src/templates/index.html',
-	title: 'Vue Easter Egg Loader',
+	title: 'Vue Easter Egg Trigger',
 };
 
 /*
