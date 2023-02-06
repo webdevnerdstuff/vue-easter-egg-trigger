@@ -4,7 +4,6 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const base = require('./webpack.base.config');
-// const { VueLoaderPlugin } = require('vue-loader');
 
 const devServerPort = 8080;
 
@@ -60,7 +59,6 @@ const plugins = [
 	new BrowserSyncPlugin(browserSyncOptions),
 	new ESLintPlugin(eslintOptions),
 	new HtmlWebpackPlugin(htmlWebpackOptions),
-	// new VueLoaderPlugin(),
 ];
 
 module.exports = merge(base, {
