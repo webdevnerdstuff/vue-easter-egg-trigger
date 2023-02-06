@@ -10,6 +10,7 @@
 		"dev": "pnpm development",
 		"development": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.config.js",
 		"build:release": "webpack --config ./build/webpack.release.config.js --progress",
+		"build:docs": "webpack --config ./build/webpack.docs.config.js --progress",
 		"build": "pnpm build:release",
 		"deploy": "gh-pages -d docs"
 	},
