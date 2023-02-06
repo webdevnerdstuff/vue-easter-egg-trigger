@@ -10,7 +10,8 @@
 		"dev": "pnpm development",
 		"development": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.config.js",
 		"build:release": "webpack --config ./build/webpack.release.config.js --progress",
-		"build": "pnpm build:release"
+		"build": "pnpm build:release",
+		"deploy": "gh-pages -d docs"
 	},
 	"author": "WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)",
 	"funding": [
@@ -80,6 +81,7 @@
 		"eslint-plugin-vue": "^9.9.0",
 		"eslint-webpack-plugin": "^4.0.0",
 		"file-loader": "^6.2.0",
+		"gh-pages": "^5.0.0",
 		"html-webpack-plugin": "^5.3.1",
 		"prettier": "^2.8.3",
 		"terser-webpack-plugin": "^5.3.6",
