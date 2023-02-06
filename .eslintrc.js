@@ -7,19 +7,15 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:vue/recommended',
 	],
-	globals: {
-		socket: true,
-		PDFObject: true,
-	},
 	parser: 'vue-eslint-parser',
 	parserOptions: {
-		parser: '@babel/eslint-parser',
-		ecmaVersion: 12,
-		sourceType: 'module',
 		ecmaFeatures: {
 			jsx: true,
 		},
+		ecmaVersion: 12,
+		parser: '@babel/eslint-parser',
 		requireConfigFile: false,
+		sourceType: 'module',
 	},
 	plugins: [
 		'import',
@@ -60,7 +56,7 @@ module.exports = {
 		'no-console': ['warn', { allow: ['warn', 'error'] }],
 		'no-debugger': 0,
 		'no-else-return': ['error', { allowElseIf: true }],
-		'no-multiple-empty-lines': ['error', { 'max': 2, 'maxEOF': 0 }],
+		'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 0 }],
 		'no-new': 0,
 		'no-param-reassign': [
 			'error', {
@@ -93,14 +89,14 @@ module.exports = {
 				enforceForRenamedProperties: false,
 			},
 		],
-		'quotes': ['error', 'single', { avoidEscape: true }],
-		'semi': ['error', 'always'],
+		quotes: ['error', 'single', { avoidEscape: true }],
+		semi: ['error', 'always'],
 		'sort-imports': ['error', {
-			'allowSeparatedGroups': false,
-			'ignoreCase': true,
-			'ignoreDeclarationSort': true,
-			'ignoreMemberSort': false,
-			'memberSyntaxSortOrder': ['none', 'single', 'all', 'multiple'],
+			allowSeparatedGroups: false,
+			ignoreCase: true,
+			ignoreDeclarationSort: true,
+			ignoreMemberSort: false,
+			memberSyntaxSortOrder: ['none', 'single', 'all', 'multiple'],
 		}],
 		'space-before-function-paren': ['error', {
 			anonymous: 'never',
@@ -108,8 +104,8 @@ module.exports = {
 			named: 'never',
 		}],
 		'vue/attributes-order': ['error', {
-			'alphabetical': true,
-			'order': [
+			alphabetical: true,
+			order: [
 				'DEFINITION',
 				'LIST_RENDERING',
 				'CONDITIONALS',
@@ -124,7 +120,7 @@ module.exports = {
 			],
 		}],
 		'vue/component-tags-order': ['error', {
-			'order': ['template', 'script', 'style'],
+			order: ['template', 'script', 'style'],
 		}],
 		'vue/html-closing-bracket-newline': 0,
 		'vue/html-comment-content-spacing': ['error',
@@ -138,7 +134,7 @@ module.exports = {
 		'vue/no-v-html': 0,
 		'vue/no-v-text-v-html-on-component': 0,
 		'vue/order-in-components': ['error', {
-			'order': [
+			order: [
 				'el',
 				'name',
 				'key',
@@ -187,12 +183,5 @@ module.exports = {
 		'vue/padding-line-between-blocks': 1,
 		'vue/require-name-property': 1,
 		'vue/singleline-html-element-content-newline': 0,
-		'vue/sort-keys': ['warn', 'asc', {
-			caseSensitive: true,
-			ignoreChildrenOf: ['model', 'defineProps'],
-			ignoreGrandchildrenOf: ['computed', 'directives', 'inject', 'props', 'watch', 'defineProps'],
-			minKeys: 2,
-			natural: true,
-		}],
 	},
 };

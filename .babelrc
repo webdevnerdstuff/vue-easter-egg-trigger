@@ -2,8 +2,6 @@
 	"presets": [["@babel/preset-env"]],
 	"ignore": ["node_modules/", "public/"],
 	"plugins": [
-		"@babel/plugin-proposal-object-rest-spread",
-		"@babel/plugin-proposal-optional-chaining",
 		[
 			"module-resolver",
 			{
