@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="app-inner">
 		<div>&nbsp;</div>
 		<div>
 			<header>
@@ -34,6 +34,13 @@
 					<span v-if="clickH1Triggered">&nbsp;(clicked via component)</span>
 				</h1>
 
+				<a href="https://www.npmjs.com/package/vue-easter-egg-trigger">
+					<img
+						alt="NPM Package"
+						src="https://img.shields.io/npm/v/vue-easter-egg-trigger?color=1867c0&logo=npm"
+					/>
+				</a>
+				&nbsp;
 				<a href="https://github.com/webdevnerdstuff/vue-easter-egg-trigger">
 					<img
 						src="https://img.shields.io/github/package-json/v/webdevnerdstuff/vue-easter-egg-trigger"
