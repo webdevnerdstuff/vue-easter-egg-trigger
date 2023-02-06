@@ -7,10 +7,10 @@
 		<div class="title">Click screen to close</div>
 		<div class="unicorn-container">
 			<svg
-				class="unicorn"
 				id="Layer_1"
-				xmlns="http://www.w3.org/2000/svg"
+				class="unicorn"
 				viewBox="0 0 406.88 226.98"
+				xmlns="http://www.w3.org/2000/svg"
 			>
 				<defs></defs>
 				<g>
@@ -1024,12 +1024,8 @@ export default {
 			this.containerClass = '';
 
 			setTimeout(() => {
-				console.log('closeEasterEgg');
 				this.$emit('closeEasterEgg');
 			}, 1000);
-		},
-		consoleInfo(text) {
-			console.info(`%c${text}`, 'background: #000; color: #0f0; font-weight: bold; padding: 10px;');
 		},
 	},
 };

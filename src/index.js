@@ -1,10 +1,9 @@
 import EasterEggComponent from './components/EasterEggComponent.vue';
 import EasterEggTriggerCore from './plugin/index';
 
-console.group('index.js');
-console.log({ EasterEggTriggerCore });
-
-let globalOptions = {};
+const globalOptions = {
+	delay: 500,
+};
 
 const EasterEggTrigger = {
 	install(Vue, options = {}) {
@@ -13,37 +12,18 @@ const EasterEggTrigger = {
 		}
 
 		// Set the Global options //
-		globalOptions = options;
+		globalOptions.delay = options.delay || globalOptions.delay;
 
+		// Add Component //
 		Vue.component(EasterEggComponent.name, EasterEggComponent);
 
-		// 1. Add global method or property
-		Vue.globalEasterEggMethod = function() {
-			// some logic ...
-		};
-
-		// 2. Add a global asset
-		Vue.directive('easter-egg-trigger-directive', {
-			bind(el, binding, vnode, oldVnode) {
-				// some logic ...
-			},
-		});
-
-		// 3. Inject some component options
-		Vue.mixin({
-			created() {
-				// some logic ...
-			},
-		});
-
-		// 4. add an instance method
+		// Add Instance Methods //
 		Vue.prototype.$easterEgg = function(methodOptions) {
-			console.log('$easterEgg instance method loaded');
-			EasterEggTriggerCore.init(globalOptions, methodOptions);
+			EasterEggTriggerCore.init(Vue, globalOptions, methodOptions);
 		};
 
 		Vue.prototype.$easterEggTrigger = function(methodOptions) {
-			EasterEggTriggerCore.init(globalOptions, methodOptions);
+			EasterEggTriggerCore.init(Vue, globalOptions, methodOptions);
 		};
 	},
 };
@@ -54,5 +34,3 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default EasterEggTrigger;
-
-console.groupEnd('index.js');
