@@ -47,7 +47,7 @@ module.exports = merge(base, {
 		clean: true,
 		filename: '[name].js',
 		path: path.resolve(__dirname, '../docs'),
-		publicPath: '/docs/',
+		publicPath: '/',
 		library: 'vue-easter-egg-trigger',
 		libraryTarget: 'umd',
 	},
