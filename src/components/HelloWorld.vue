@@ -1,5 +1,5 @@
 <template>
-	<div id="app-inner">
+	<div>
 		<div>&nbsp;</div>
 		<div>
 			<header>
@@ -43,9 +43,11 @@
 				&nbsp;
 				<a href="https://github.com/webdevnerdstuff/vue-easter-egg-trigger">
 					<img
-						src="https://img.shields.io/github/package-json/v/webdevnerdstuff/vue-easter-egg-trigger"
+						alt="@WebDevNerdStuff"
+						src="https://img.shields.io/badge/GitHub-WebDevNerdStuff-brightgreen.svg?logo=github"
 					/>
 				</a>
+
 				<h5>
 					by <a href="https://github.com/webdevnerdstuff">WebDevNerdStuff</a>
 				</h5>
@@ -93,17 +95,17 @@
 					Konami code triggered
 				</div>
 			</div>
+
+			<EasterEggComponent
+				:pattern="['click']"
+				target=".using-component"
+				type="click"
+				@callback="callbackEvent('using-component')"
+				@triggered="triggeredEvent('using-component')"
+			/>
 		</div>
 
 		<footer>&copy; 2022 WebDevNerdStuff</footer>
-
-		<EasterEggComponent
-			:pattern="['click']"
-			target=".using-component"
-			type="click"
-			@callback="callbackEvent('using-component')"
-			@triggered="triggeredEvent('using-component')"
-		/>
 
 		<component :is="activeEasterEgg" @closeEasterEgg="closeEasterEgg" />
 	</div>
