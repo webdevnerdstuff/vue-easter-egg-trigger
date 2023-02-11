@@ -10,7 +10,7 @@ export default {
 	name: 'EasterEggComponent',
 	props: {
 		destroyBus: {
-			default: false,
+			default: true,
 			type: Boolean,
 		},
 		name: {
@@ -30,7 +30,7 @@ export default {
 			type: String,
 		},
 		withBus: {
-			default: true,
+			default: false,
 			type: Boolean,
 		},
 	},

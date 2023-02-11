@@ -200,7 +200,7 @@ const EasterEggTriggerCore = {
 			new EasterEggTriggerVueObj().$bus.$emit(`${egg.name}`, egg.name);
 
 			// Auto destroy $bus.$on //
-			if (egg.destroyBus) {
+			if (egg.destroyBus && egg.withBus) {
 				new EasterEggTriggerVueObj().$bus.$off(`${egg.name}`);
 			}
 		}

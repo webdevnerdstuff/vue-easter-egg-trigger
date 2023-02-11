@@ -33,4 +33,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 	window.Vue.use(EasterEggTrigger);
 }
 
+export { EasterEggComponent };
+
 export default EasterEggTrigger;
