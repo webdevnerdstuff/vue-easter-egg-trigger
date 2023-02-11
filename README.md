@@ -42,7 +42,7 @@ Vue.use(EasterEggTrigger);
 ```
 ### Component Registration
 ```javascript
-import { EasterEggTrigger } from 'vue-easter-egg-trigger';
+import { EasterEggComponent } from 'vue-easter-egg-trigger';
 ```
  
 ## Usage
