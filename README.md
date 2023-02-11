@@ -195,9 +195,9 @@ The default key combination to trigger the easter egg is the [Konami Code](https
 
 ```html
 <EasterEggComponent
-	:withBus"true"
-	type="keydown"
-	@callback="callbackEvent('using-component')"
+  :withBus"true"
+  type="keydown"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
@@ -219,8 +219,8 @@ export default {
  
 ```html
 <EasterEggComponent
-	type="keydown"
-	@callback="callbackEvent('using-component')"
+  type="keydown"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
@@ -238,8 +238,8 @@ export default {
  
 ```html
 <EasterEggComponent
-	type="keydown"
-	@triggered="triggeredEvent('using-component')"
+  type="keydown"
+  @triggered="triggeredEvent('using-component')"
 />
 
 <script>
@@ -262,8 +262,8 @@ When using `dblclick` the pattern will only work with one double click. Ex. patt
 
 ```html
 <EasterEggComponent
-	type="click"
-	@callback="callbackEvent('using-component')"
+  type="click"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
@@ -281,8 +281,8 @@ export default {
  
 ```html
 <EasterEggComponent
-	type="click"
-	@callback="callbackEvent('using-component')"
+  type="click"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
@@ -304,9 +304,9 @@ export default {
 
 ```html
 <EasterEggComponent
-	type="click"
+  type="click"
   target="h1"
-	@callback="callbackEvent('using-component')"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
@@ -324,10 +324,10 @@ export default {
 
 ```html
 <EasterEggComponent
-	type="click"
+  type="click"
   target="#foo"
   pattern="['click', 'click']"
-	@callback="callbackEvent('using-component')"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
@@ -345,10 +345,10 @@ export default {
 
 ```html
 <EasterEggComponent
-	type="click"
+  type="click"
   target=".foo"
   pattern="['click', 'click', 'click']"
-	@callback="callbackEvent('using-component')"
+  @callback="callbackEvent('using-component')"
 />
 
 <script>
