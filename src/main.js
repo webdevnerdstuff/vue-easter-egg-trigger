@@ -8,5 +8,6 @@ Vue.use(EasterEggTrigger);
 Vue.config.productionTip = false;
 
 new Vue({
+	name: 'App',
 	render: (h) => h(App),
 }).$mount('#app');
