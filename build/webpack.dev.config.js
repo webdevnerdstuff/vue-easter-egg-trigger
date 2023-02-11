@@ -1,10 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const { merge } = require('webpack-merge');
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const base = require('./webpack.base.config');
-// const { VueLoaderPlugin } = require('vue-loader');
 
 const devServerPort = 8080;
 
@@ -32,7 +32,7 @@ const eslintOptions = {
 const htmlWebpackOptions = {
 	inject: 'body',
 	template: '../src/templates/index.html',
-	title: 'Vue Easter Egg Loader',
+	title: 'Vue Easter Egg Trigger',
 };
 
 /*
@@ -60,7 +60,6 @@ const plugins = [
 	new BrowserSyncPlugin(browserSyncOptions),
 	new ESLintPlugin(eslintOptions),
 	new HtmlWebpackPlugin(htmlWebpackOptions),
-	// new VueLoaderPlugin(),
 ];
 
 module.exports = merge(base, {
@@ -68,10 +67,30 @@ module.exports = merge(base, {
 	context: path.join(__dirname, '../src'),
 	devServer: {
 		compress: true,
-		contentBase: path.join(__dirname, '../docs'),
-		quiet: false,
-		writeToDisk: true,
+		static: {
+			directory: path.join(__dirname, '../docs'),
+		},
+		devMiddleware: {
+			writeToDisk: true,
+		},
+		client: {
+			overlay: {
+				errors: true,
+				warnings: false,
+			},
+		},
 	},
+	ignoreWarnings: [
+		{
+			module: /module2\.js\?[34]/, // A RegExp
+		},
+		{
+			module: /[13]/,
+			message: /homepage/,
+		},
+		/warning from compiler/,
+		(warning) => true,
+	],
 	devtool: 'source-map',
 	entry: '../src/main.js',
 	output: {
@@ -101,6 +120,6 @@ module.exports = merge(base, {
 		publicPath: false,
 		usedExports: false,
 		version: false,
-		warnings: true,
+		warnings: false,
 	},
 });
