@@ -1,16 +1,10 @@
+<script setup lang="ts">
+import HelloWorld from '@/components/HelloWorld.vue'
+</script>
+
 <template>
-	<div id="app-inner">
-		<HelloWorld />
-	</div>
+	<HelloWorld />
 </template>
 
-<script>
-import HelloWorld from '@components/HelloWorld.vue';
-
-export default {
-	name: 'App',
-	components: {
-		HelloWorld,
-	},
-};
-</script>
+<style scoped>
+</style>

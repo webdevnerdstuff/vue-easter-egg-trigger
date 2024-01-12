@@ -1,2 +1,3 @@
-demo
-*.map
+node_modules
+.github
+.history

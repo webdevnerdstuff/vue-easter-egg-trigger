@@ -1,46 +1,52 @@
 {
-	"name": "vue-easter-egg-trigger",
-	"version": "2.0.2",
-	"description": "This packages makes it nice and easy to add Easter Egg triggers to your Vue site.",
+	"name": "vue3-easter-egg-trigger",
+	"version": "1.0.2",
+	"description": "This packages makes it nice and easy to add Easter Egg triggers to your Vue3 site.",
 	"private": false,
-	"main": "dist/vue-easter-egg-trigger.js",
+	"main": "dist/vue3-easter-egg-trigger.cjs.js",
+	"module": "dist/vue3-easter-egg-trigger.es.js",
+	"types": "dist/types/index.d.ts",
 	"scripts": {
-		"serve": "pnpm development",
-		"watch": "pnpm development",
-		"dev": "pnpm development",
-		"development": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.dev.config.js",
-		"build:release": "webpack --config ./build/webpack.release.config.js --progress",
-		"build:docs": "webpack --config ./build/webpack.docs.config.js --progress",
-		"build": "pnpm build:release",
-		"deploy": "gh-pages -d docs"
+		"dev": "vite",
+		"watch": "pnpm dev",
+		"bundle": "rollup -c --bundleConfigAsCjs",
+		"build": "vue-tsc && vite build --config vite.build.config.ts",
+		"build:docs": "vite build",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d docs",
+		"prepublishOnly": "npm run build",
+		"lint": "eslint src/**/*.{ts,vue} --max-warnings 4"
+	},
+	"lint-staged": {
+		"src/**/*.{js,ts,vue}": [
+			"npm run lint"
+		]
 	},
 	"author": "WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)",
 	"funding": [
 		{
-			"type": "patreon",
-			"url": "https://www.patreon.com/WebDevNerdStuff"
+			"type": "paypal",
+			"url": "https://paypal.me/webdevnerdstuff"
 		},
 		{
-			"type": "individual",
-			"url": "https://bit.ly/wdns-paypal-veet-plugin"
+			"type": "patreon",
+			"url": "https://www.patreon.com/WebDevNerdStuff"
 		}
 	],
 	"license": "MIT",
 	"files": [
 		"dist/*",
-		"src/*",
-		"types/*",
 		"LICENSE.md",
-		"README.md",
-		"CHANGELOG.md"
+		"README.md"
 	],
-	"repository": "https://github.com/webdevnerdstuff/vue-easter-egg-trigger",
+	"repository": "https://github.com/webdevnerdstuff/vue3-easter-egg-trigger",
 	"bugs": {
-		"url": "https://github.com/webdevnerdstuff/vue-easter-egg-trigger/issues"
+		"url": "https://github.com/webdevnerdstuff/vue3-easter-egg-trigger/issues"
 	},
-	"homepage": "https://github.com/webdevnerdstuff/vue-easter-egg-trigger",
+	"homepage": "https://github.com/webdevnerdstuff/vue3-easter-egg-trigger",
 	"keywords": [
 		"vue",
+		"vue3",
 		"javascript",
 		"easterEgg",
 		"easter egg",
@@ -52,48 +58,38 @@
 		"webdevnerdstuff",
 		"wdns"
 	],
+	"peerDependencies": {
+		"vue": "^3.2.25"
+	},
 	"dependencies": {
-		"lodash": "^4.17.21",
-		"vue": "^2.7.3"
+		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.20.12",
-		"@babel/eslint-parser": "^7.19.1",
-		"@babel/eslint-plugin": "^7.19.1",
-		"@babel/plugin-transform-runtime": "^7.19.6",
-		"@babel/preset-env": "^7.20.2",
-		"@babel/runtime": "^7.20.13",
-		"@vue/eslint-config-prettier": "^7.0.0",
-		"babel-loader": "^9.1.2",
-		"babel-plugin-module-resolver": "^5.0.0",
-		"browser-sync": "^2.26.14",
-		"browser-sync-webpack-plugin": "^2.3.0",
-		"cross-env": "^7.0.3",
-		"css-loader": "^6.7.3",
-		"eslint": "^8.33.0",
-		"eslint-config-airbnb-base": "^15.0.0",
-		"eslint-friendly-formatter": "^4.0.1",
-		"eslint-import-resolver-alias": "^1.1.2",
-		"eslint-import-resolver-babel-module": "^5.3.1",
-		"eslint-import-resolver-webpack": "^0.13.0",
-		"eslint-plugin-babel": "^5.3.1",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-vue": "^9.9.0",
-		"eslint-webpack-plugin": "^4.0.0",
-		"file-loader": "^6.2.0",
+		"@rollup/plugin-commonjs": "^25.0.3",
+		"@rollup/plugin-terser": "^0.4.3",
+		"@types/lodash": "^4.14.195",
+		"@types/node": "^20.4.2",
+		"@typescript-eslint/eslint-plugin": "^6.1.0",
+		"@typescript-eslint/parser": "^6.1.0",
+		"@vitejs/plugin-vue": "^4.2.3",
+		"@vue/compiler-sfc": "^3.3.4",
+		"@vue/eslint-config-typescript": "^11.0.3",
+		"eslint": "^8.45.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-prettier": "^5.0.0",
+		"eslint-plugin-vue": "^9.15.1",
 		"gh-pages": "^5.0.0",
-		"html-webpack-plugin": "^5.3.1",
-		"prettier": "^2.8.3",
-		"terser-webpack-plugin": "^5.3.6",
-		"vue-hot-reload-api": "^2.0.8",
-		"vue-loader": "^15.10.0",
-		"vue-style-loader": "^4.1.3",
-		"vue-template-babel-compiler": "^1.2.0",
-		"vue-template-compiler": "^2.7.3",
-		"webpack": "^5.73.0",
-		"webpack-cli": "^5.0.1",
-		"webpack-dev-server": "^4.11.1",
-		"webpack-merge": "^5.7.3"
+		"husky": "^8.0.0",
+		"lint-staged": "^13.2.3",
+		"prettier": "^3.0.0",
+		"rollup": "^3.26.3",
+		"rollup-plugin-typescript2": "^0.35.0",
+		"typescript": "^5.1.6",
+		"vite": "^4.4.5",
+		"vite-plugin-dts": "^3.3.1",
+		"vite-plugin-eslint": "^1.8.1",
+		"vue": "^3.3.4",
+		"vue-tsc": "^1.8.5"
 	}
 }
