@@ -6,8 +6,17 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:vue/essential',
-		"@vue/typescript/recommended",
-		"prettier",
+		'plugin:@typescript-eslint/recommended',
+		'@vue/typescript/recommended',
+		'prettier',
+		'./.eslintrc-auto-import.json',
+	],
+	ignorePatterns: [
+		'.eslintrc.js',
+		'stylelint.config.js',
+		'vite.build.config.mts',
+		'vite.config.mts',
+		'*.bk.vue',
 	],
 	overrides: [
 		{
@@ -23,7 +32,7 @@ module.exports = {
 		Entry: true,
 	},
 	parserOptions: {
-		parser: "@typescript-eslint/parser",
+		parser: '@typescript-eslint/parser',
 	},
 	plugins: [
 		'@typescript-eslint',
@@ -34,20 +43,21 @@ module.exports = {
 	root: true,
 	settings: {
 		'import/resolver': {
-			'babel-module': {},
 		},
 	},
 	rules: {
-		"@typescript-eslint/ban-types": [
-      "error",
-      {
-        "extendDefaults": true,
-        "types": {
-          "{}": false
-        }
-      }
-    ],
+		'@typescript-eslint/ban-ts-comment': 0,
+		'@typescript-eslint/ban-types': [
+			'error',
+			{
+				'extendDefaults': true,
+				'types': {
+					'{}': false,
+				}
+			},
+		],
 		'@typescript-eslint/no-empty-function': 0,
+		'@typescript-eslint/no-explicit-any': 0,
 		'brace-style': ['error', 'stroustrup'],
 		'default-case': [
 			'error', {
@@ -64,10 +74,11 @@ module.exports = {
 		'linebreak-style': 0,
 		'max-len': 0,
 		'no-else-return': ['error', { allowElseIf: true }],
-		'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
+		'no-console': ['warn', { allow: ['warn', 'error', 'info', 'trace'] }],
 		'no-const-assign': 'error',
 		'no-debugger': 0,
 		'no-new': 0,
+		'no-undef': 0,
 		'no-unused-vars': 1,
 		'no-use-before-define': 0,
 		'no-useless-escape': 0,
@@ -102,7 +113,7 @@ module.exports = {
 		'space-before-function-paren': ['error', {
 			anonymous: 'never',
 			named: 'never',
-			asyncArrow: 'never',
+			asyncArrow: 'always',
 		}],
 		'vue/attributes-order': ['error', {
 			'alphabetical': true,
@@ -126,8 +137,16 @@ module.exports = {
 		'vue/max-attributes-per-line': 0,
 		'vue/no-multiple-template-root': 0,
 		'vue/no-template-shadow': 0,
+		'vue/no-v-for-template-key': 0,
 		'vue/no-v-html': 0,
 		'vue/singleline-html-element-content-newline': 0,
+		'vue/sort-keys': ['error', 'asc', {
+			caseSensitive: true,
+			ignoreChildrenOf: ['model', 'defineProps'],
+			ignoreGrandchildrenOf: ['computed', 'directives', 'inject', 'props', 'watch', 'defineProps'],
+			minKeys: 2,
+			natural: true,
+		}],
 		'vue/valid-template-root': 0,
 	},
 };

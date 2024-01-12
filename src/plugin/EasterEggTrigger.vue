@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue';
 import { findIndex, includes, isEqual, uniq } from 'lodash';
-import { Entry } from '@/types';
+import { Entry } from '@/plugin/types';
 
 
 export default defineComponent({
