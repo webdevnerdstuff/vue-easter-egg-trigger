@@ -1,10 +1,21 @@
-import { App, Plugin } from 'vue';
-import { EasterEggTrigger } from './EasterEggTrigger.vue';
+import type { App } from 'vue';
+import type { Props } from './types';
+import VEasterEggTrigger from './VEasterEggTrigger.vue';
 
-const install = (app: App) => {
-	app.component('EasterEggTrigger', EasterEggTrigger);
+
+export const globalOptions = Symbol();
+
+export function createVEasterEggTrigger(options: Props = {}) {
+	return (app: App) => {
+		app.provide(globalOptions, options);
+
+		app.component('EasterEggTrigger', VEasterEggTrigger);
+		app.component('VEasterEggTrigger', VEasterEggTrigger);
+	};
+}
+
+export default VEasterEggTrigger;
+
+export {
+	VEasterEggTrigger,
 };
-
-EasterEggTrigger.install = install;
-
-export default EasterEggTrigger as unknown as Plugin;

@@ -6,7 +6,11 @@
 	>
 		<div class="title">Click screen to close</div>
 		<div class="unicorn-container">
-			<img alt="Farting Unicorns" class="unicorn" src="../assets/unicorn.svg" />
+			<img
+				alt="Farting Unicorns"
+				class="unicorn"
+				src="../assets/unicorn.svg"
+			/>
 		</div>
 	</div>
 </template>
@@ -34,7 +38,7 @@ function closeEasterEgg() {
 
 <style scoped>
 #easter-egg-container {
-	background-color: hsla(0, 0%, 0%, 0.8);
+	background-color: hsl(0deg 0% 0% / 80%);
 	display: flex;
 	height: 100vh;
 	justify-content: center;
@@ -53,8 +57,8 @@ function closeEasterEgg() {
 
 #easter-egg-container .title {
 	color: #fff;
-	font-weight: bold;
 	font-size: 1rem;
+	font-weight: bold;
 	padding-top: 1em;
 }
 
@@ -71,8 +75,8 @@ function closeEasterEgg() {
 	position: absolute;
 	right: 0;
 	top: 0;
-	transform-origin: bottom center;
 	transform: rotate(115deg);
+	transform-origin: bottom center;
 	width: 300px;
 }
 
@@ -86,7 +90,7 @@ function closeEasterEgg() {
 	}
 }
 
-@-webkit-keyframes flyingUnicornContainer {
+@keyframes flyingUnicornContainer {
 	0% {
 		transform: rotate(330deg);
 	}
@@ -96,7 +100,7 @@ function closeEasterEgg() {
 	}
 }
 
-@-moz-keyframes flyingUnicornContainer {
+@keyframes flyingUnicornContainer {
 	0% {
 		transform: rotate(330deg);
 	}

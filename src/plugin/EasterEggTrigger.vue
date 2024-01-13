@@ -6,6 +6,7 @@ import { Entry } from '@/plugin/types';
 
 export default defineComponent({
 	name: 'EasterEggTrigger',
+	emits: ['triggered'],
 	props: {
 		callback: {
 			default: null as void,
@@ -28,7 +29,6 @@ export default defineComponent({
 			type: String,
 		},
 	},
-	emits: ['triggered'],
 	setup(props, { emit }) {
 		interface OptionsSettings {
 			callback?: void;
@@ -60,9 +60,9 @@ export default defineComponent({
 			ids: string[];
 			classNames: string[];
 		} = reactive({
-			nodes: [],
-			ids: [],
 			classNames: [],
+			ids: [],
+			nodes: [],
 		});
 
 
@@ -202,9 +202,9 @@ export default defineComponent({
 				// Clean inputs and targets //
 				input = [];
 				targets = {
-					nodes: [],
-					ids: [],
 					classNames: [],
+					ids: [],
+					nodes: [],
 				};
 			}, +delayReset);
 		}

@@ -2,7 +2,7 @@
 	<v-app id="home">
 		<!-- ====================================================== App Bar -->
 		<AppBar
-			:selectedLibrary="selectedLibrary"
+			@changed-theme="updateCodeBlockTheme"
 			@updated-drawer="toggleDrawer"
 		/>
 
@@ -20,12 +20,9 @@
 		<v-main class="pb-10">
 			<v-container
 				class="px-7"
-				style="max-width: 90%;"
+				style="max-width: 1368px;"
 			>
-				<DocsPage
-					@changedLibrary="selectedLibrary = $event"
-					@changedTheme="selectedTheme = $event"
-				/>
+				<DocsPage :codeBlockOptions="codeBlockSettings" />
 			</v-container>
 		</v-main>
 	</v-app>
@@ -54,18 +51,24 @@ const drawerOptions = ref({
 	elevation: 10,
 });
 
-const selectedLibrary = ref(store.libraries[1]);
-const selectedTheme = ref('neon-bunny');
 
-provide('selectedLibrary', selectedLibrary);
-provide('selectedTheme', selectedTheme);
+const codeBlockPlugin = 'prismjs';
+const codeBlockLightTheme = 'tomorrow';
+const codeBlockDarkTheme = 'tomorrow';
 
-const codeBlockOptions = ref({
-	browserWindow: false,
-	preHeight: '30em',
+const codeBlockSettings = ref({
+	plugin: codeBlockPlugin,
+	theme: codeBlockDarkTheme,
 });
 
-provide('codeBlockOptions', codeBlockOptions.value);
+function updateCodeBlockTheme(val) {
+	codeBlockSettings.value.theme = codeBlockLightTheme;
+
+	if (val === 'dark') {
+		codeBlockSettings.value.theme = codeBlockDarkTheme;
+	}
+}
+
 provide('drawerOptions', drawerOptions);
 provide('links', store.links);
 
@@ -74,15 +77,10 @@ function toggleDrawer() {
 }
 </script>
 
-
 <style lang="scss">
 html {
 	scroll-behavior: smooth;
 	scroll-padding-top: 70px;
-}
-
-body {
-	font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -104,29 +102,6 @@ a {
 				color: #3700b3;
 			}
 		}
-	}
-}
-
-.v-row {
-	h1,
-	h2,
-	h5 {
-		font-family: 'Encode Sans Expanded', sans-serif !important;
-	}
-
-	h1 {
-		font-size: 3rem;
-		font-weight: 700;
-	}
-
-	h2 {
-		font-size: 2rem;
-		font-weight: 400;
-		padding-bottom: 0.5rem;
-	}
-
-	h5 {
-		font-weight: 600;
 	}
 }
 
@@ -165,5 +140,3 @@ a {
 	margin: 0;
 }
 </style>
-
-
