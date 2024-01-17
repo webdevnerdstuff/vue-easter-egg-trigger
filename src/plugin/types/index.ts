@@ -1,4 +1,11 @@
 /* eslint-disable no-unused-vars */
+
+import VEasterEggTrigger from '../VEasterEggTrigger.vue';
+
+export * from '../index';
+
+
+
 export type Entry<T> = {
 	[K in keyof T]: [K, T[K]]
 }[keyof T];
@@ -18,4 +25,15 @@ export interface Targets {
 	nodes: string[];
 	ids: string[];
 	classNames: string[];
+}
+
+declare module "vue" {
+	interface ComponentCustomProperties {
+
+	}
+
+	interface GlobalComponents {
+		EasterEggTrigger: typeof VEasterEggTrigger,
+		VEasterEggTrigger: typeof VEasterEggTrigger;
+	}
 }
