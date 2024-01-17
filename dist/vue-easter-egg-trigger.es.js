@@ -2,7 +2,7 @@ import { defineComponent as D, inject as O, reactive as l, watchEffect as R, onM
 import { includes as m, isEqual as U, uniq as E } from "lodash";
 /**
  * @name @wdns/vue-easter-egg-trigger
- * @version 3.0.0
+ * @version 3.0.1
  * @description Presenting the Vue Easter Egg Trigger, a tool that discreetly injects a touch of unexpectedness into Vue.js projects. This unassuming plugin, which operates on both keystrokes (with click events also available), brings hidden surprises to your applications.
  * @author WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)
  * @copyright Copyright 2024, WebDevNerdStuff
