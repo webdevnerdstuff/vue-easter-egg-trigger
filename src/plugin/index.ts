@@ -16,6 +16,9 @@ export function createVEasterEggTrigger(options: Props = {}) {
 
 export default VEasterEggTrigger;
 
+const EasterEggTrigger = VEasterEggTrigger;
+
 export {
+	EasterEggTrigger,
 	VEasterEggTrigger,
 };
