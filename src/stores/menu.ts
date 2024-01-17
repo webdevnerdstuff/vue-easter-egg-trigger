@@ -26,13 +26,6 @@ export const useMenuStore = defineStore('menu', () => {
 		{
 			href: '#examples',
 			icon: 'mdi:mdi-code-json',
-			items: [
-				{
-					href: '#examples',
-					icon: 'mdi:mdi-code-json',
-					title: 'Basic',
-				},
-			],
 			title: 'Examples',
 		},
 		{

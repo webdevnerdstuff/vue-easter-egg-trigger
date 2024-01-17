@@ -36,10 +36,40 @@ const propsHeaders = [
 
 const componentProps = [
 	{
+		default: '',
+		desc: 'A callback function after the egg has been triggered.',
+		name: 'callback',
+		type: '(settings: Props) => void',
+	},
+	{
 		default: 'false',
-		desc: 'hello world',
-		name: 'hello-world',
+		desc: 'Used to keep the event listener after the egg has been triggered.',
+		name: 'persist',
 		type: 'boolean',
+	},
+	{
+		default: '500',
+		desc: 'Determines the timeout before the event listener resets. The longer the delay, the more time a user has to complete the pattern.',
+		name: 'delay',
+		type: 'number',
+	},
+	{
+		default: `['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']`,
+		desc: 'The key/click combination a user does to trigger easter egg. The default combination is the konami code.',
+		name: 'pattern',
+		type: 'string[]',
+	},
+	{
+		default: 'body',
+		desc: 'Use this to target DOM elements, Id\'s, or Class Names. Used with click events.',
+		name: 'target',
+		type: 'string',
+	},
+	{
+		default: 'keydown',
+		desc: 'The type of action the trigger will be listening for.',
+		name: 'type',
+		type: 'string',
 	},
 ];
 

@@ -9,22 +9,20 @@ export const useCoreStore = defineStore('core', () => {
 	// Links //
 	const repoBaseUrl = `https://github.com/webdevnerdstuff/${packageName}`;
 	const links = {
+		adobeTerms: 'https://stock.adobe.com/license-terms',
 		changeLog: `${repoBaseUrl}/blob/main/CHANGELOG.md`,
+		christineWulf: 'https://stock.adobe.com/search?creator_id=201928505',
+		cutiefulCritters: 'https://findme.cutiefulcritters.com/',
 		github: repoBaseUrl,
 		githubProfile: 'https://github.com/webdevnerdstuff',
+		konamiCode: 'https://en.wikipedia.org/wiki/Konami_Code',
 		license: `${repoBaseUrl}/blob/main/LICENSE.md`,
+		lodash: 'https://lodash.com/',
 		npm: `https://www.npmjs.com/package/${scopedPackageName}`,
 		vue: 'https://vuejs.org/',
 	};
 
 	const actions = {
-		setLocalStorage(val: string): string {
-			const oldValue = localStorage.getItem(packageName);
-			const newValue = val ?? oldValue;
-
-			localStorage.setItem(packageName, newValue);
-			return newValue;
-		},
 		setTheme(val: string): string {
 			const themeName = val === 'dark' ? 'light' : 'dark';
 			const currentTheme = localStorage.getItem(`${packageName}-theme`);
@@ -36,10 +34,6 @@ export const useCoreStore = defineStore('core', () => {
 	};
 
 	const getters = {
-		getLocalStorage: () => (): unknown => {
-			const value = localStorage.getItem(packageName);
-			return value;
-		},
 		getTheme: () => {
 			const value = localStorage.getItem(`${packageName}-theme`);
 			return value;
