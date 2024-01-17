@@ -16,6 +16,7 @@ module.exports = {
 		'stylelint.config.js',
 		'vite.build.config.mts',
 		'vite.config.mts',
+		'vitest.config.mts',
 		'*.bk.vue',
 	],
 	overrides: [
