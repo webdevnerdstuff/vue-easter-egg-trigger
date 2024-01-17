@@ -1,11 +1,33 @@
 <template>
 	<v-row class="text-center">
-		<v-col cols="12">
+		<v-col
+			class="my-3"
+			cols="12"
+			style="height: 200px; position: relative; width: 100%;"
+		>
 			<v-img
-				class="my-3"
-				contain
+				class="header-egg"
+				:class="{ active: eggCracked }"
 				height="200"
 				src="../assets/egg.png"
+				title="Vue Easter Egg Trigger"
+				width="200"
+			/>
+			<v-img
+				v-if="eggCracked"
+				class="header-egg"
+				:class="{ active: eggCracked }"
+				height="200"
+				src="../assets/egg-cracked.png"
+				title="Vue Easter Egg Trigger"
+				width="200"
+			/>
+
+			<VEasterEggTrigger
+				:pattern="['dblclick']"
+				target=".header-egg"
+				type="dblclick"
+				@triggered="eggClicked"
 			/>
 		</v-col>
 
@@ -94,6 +116,11 @@
 
 	<!-- Legal -->
 	<LegalSection />
+
+	<component
+		:is="activeEasterEgg"
+		@close-easter-egg="closeEasterEgg"
+	/>
 </template>
 
 <script setup>
@@ -110,6 +137,7 @@ import {
 	PropsSection,
 	UsageSection,
 } from '@/documentation/sections';
+import EasterEgg from '@/components/EasterEgg.vue';
 
 
 const props = defineProps({
@@ -131,6 +159,18 @@ const classes = reactive({
 const componentVersion = ref(packageInfo.version);
 
 provide('classes', classes);
+
+const eggCracked = ref(false);
+const activeEasterEgg = ref(null);
+
+function eggClicked() {
+	activeEasterEgg.value = markRaw(EasterEgg);
+	eggCracked.value = true;
+}
+
+function closeEasterEgg() {
+	activeEasterEgg.value = null;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -142,6 +182,19 @@ provide('classes', classes);
 		font-size: 85%;
 		font-weight: normal;
 		padding: 0.2em 0.4em;
+	}
+}
+
+.header-egg {
+	cursor: pointer;
+	height: 200px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 200px;
+
+	&.active {
+		cursor: default;
 	}
 }
 </style>

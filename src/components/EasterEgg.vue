@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { useDisplay } from 'vuetify';
 
 const containerClass = ref('');
 const emit = defineEmits(['closeEasterEgg']);
@@ -24,8 +25,14 @@ const emit = defineEmits(['closeEasterEgg']);
 onMounted(() => {
 	setTimeout(() => {
 		containerClass.value = 'active';
+
+		if (mdAndDown.value) {
+			containerClass.value += ' mobile';
+		}
 	}, 0);
 });
+
+const { mdAndDown } = useDisplay();
 
 function closeEasterEgg() {
 	containerClass.value = '';
@@ -36,7 +43,7 @@ function closeEasterEgg() {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #easter-egg-container {
 	background-color: hsl(0deg 0% 0% / 80%);
 	display: flex;
@@ -49,17 +56,30 @@ function closeEasterEgg() {
 	transition: opacity 1s ease;
 	width: 100vw;
 	z-index: 999999;
-}
 
-#easter-egg-container.active {
-	opacity: 1;
-}
+	&.active {
+		opacity: 1;
+	}
 
-#easter-egg-container .title {
-	color: #fff;
-	font-size: 1rem;
-	font-weight: bold;
-	padding-top: 1em;
+	&.mobile {
+		.unicorn-container {
+			animation: none;
+			bottom: initial;
+			top: 50%;
+		}
+
+		.unicorn {
+			left: 50%;
+			transform: rotate(0deg) translate(-50%, -50%);
+		}
+	}
+
+	.title {
+		color: #fff;
+		font-size: 1rem;
+		font-weight: bold;
+		padding-top: 1em;
+	}
 }
 
 .unicorn-container {
