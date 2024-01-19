@@ -38,7 +38,7 @@
 							color="primary"
 							:disabled="clickClassTriggered"
 						>
-							Triggered by Class
+							Triggered by Class (3 clicks)
 						</v-btn>
 
 						<VEasterEggTrigger
@@ -53,7 +53,7 @@
 							class="callback-triggered"
 							:class="callbackTriggeredClass"
 						>
-							Class element clicked
+							Class element clicked 3 times
 						</div>
 					</v-col>
 

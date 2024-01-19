@@ -2,7 +2,7 @@ import { defineComponent as D, inject as O, reactive as l, watchEffect as R, onM
 import { includes as m, isEqual as U, uniq as E } from "lodash";
 /**
  * @name @wdns/vue-easter-egg-trigger
- * @version 3.0.1
+ * @version 3.0.2
  * @description Presenting the Vue Easter Egg Trigger, a tool that discreetly injects a touch of unexpectedness into Vue.js projects. This unassuming plugin, which operates on both keystrokes (with click events also available), brings hidden surprises to your applications.
  * @author WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)
  * @copyright Copyright 2024, WebDevNerdStuff
@@ -10,26 +10,29 @@ import { includes as m, isEqual as U, uniq as E } from "lodash";
  * @repository https://github.com/webdevnerdstuff/vue-easter-egg-trigger
  * @license MIT License
  */
-const v = D({ __name: "VEasterEggTrigger", props: { callback: {}, destroy: { type: Boolean }, delay: { default: 500 }, pattern: { default: () => ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"] }, persist: { type: Boolean, default: !1 }, target: { default: "body" }, type: { default: "keydown" } }, emits: ["triggered"], setup(c, { emit: a }) {
-  const N = a, g = c, y = O(L, {}), e = l({ ...g, ...y });
+const y = D({ __name: "VEasterEggTrigger", props: { callback: {}, destroy: { type: Boolean }, delay: { default: 500 }, pattern: { default: () => ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"] }, persist: { type: Boolean, default: !1 }, target: { default: "body" }, type: { default: "keydown" } }, emits: ["triggered"], setup(c, { emit: o }) {
+  const N = o, g = c, v = O(L, {}), e = l({ ...g, ...v });
   R(() => {
-    Object.assign(e, { ...g, ...y });
+    Object.assign(e, { ...g, ...v });
   });
   let d = l([]), r = null, s = setTimeout(() => {
   });
-  const w = l(["click", "dblclick", "mouseup", "mousedown"]), o = l({ classNames: [], ids: [], nodes: [] });
+  const w = l(["click", "dblclick", "mouseup", "mousedown"]), a = l({ classNames: [], ids: [], nodes: [] });
   function p(t) {
     const i = u("");
     if (s !== null && clearTimeout(s), t.key !== void 0 && (i.value = t.key), m(w, t.type)) {
       const n = t.currentTarget;
-      i.value = t.type, o.nodes.push(n.nodeName.toLowerCase()), o.ids.push(n.id), o.classNames.push(n.classList.value);
+      i.value = t.type, a.nodes.push(n.nodeName.toLowerCase()), a.ids.push(n.id), a.classNames.push(n.classList.value);
     }
     d.push(i.value), function(n) {
-      if (U(e.pattern, d))
-        return m(w, n.type) ? void function() {
-          const f = e.target, V = f.replace("#", ""), q = f.replace(".", ""), T = E(o.nodes), k = E(o.ids), A = E(o.classNames), j = u(T.length === 1 && T[0] === f), B = u(k.length === 1 && k[0] === V), C = u(A.length === 1 && m(A[0], q));
-          (j.value || B.value || C.value) && h(), b();
-        }() : void h();
+      if (U(e.pattern, d)) {
+        if (m(w, n.type))
+          return void function() {
+            const f = e.target, V = f.replace("#", ""), q = f.replace(".", ""), T = E(a.nodes), k = E(a.ids), A = E(a.classNames), j = u(T.length === 1 && T[0] === f), B = u(k.length === 1 && k[0] === V), C = u(A.length === 1 && m(A[0], q));
+            (j.value || B.value || C.value) && h(), b();
+          }();
+        h();
+      }
       b();
     }(t);
   }
@@ -54,15 +57,15 @@ const v = D({ __name: "VEasterEggTrigger", props: { callback: {}, destroy: { typ
   }), (t, i) => null;
 } }), L = Symbol();
 function M(c = {}) {
-  return (a) => {
-    a.provide(L, c), a.component("EasterEggTrigger", v), a.component("VEasterEggTrigger", v);
+  return (o) => {
+    o.provide(L, c), o.component("EasterEggTrigger", y), o.component("VEasterEggTrigger", y);
   };
 }
-const $ = v;
+const $ = y;
 export {
   $ as EasterEggTrigger,
-  v as VEasterEggTrigger,
+  y as VEasterEggTrigger,
   M as createVEasterEggTrigger,
-  v as default,
+  y as default,
   L as globalOptions
 };

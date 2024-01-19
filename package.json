@@ -1,6 +1,6 @@
 {
 	"name": "@wdns/vue-easter-egg-trigger",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"description": "Presenting the Vue Easter Egg Trigger, a tool that discreetly injects a touch of unexpectedness into Vue.js projects. This unassuming plugin, which operates on both keystrokes (with click events also available), brings hidden surprises to your applications.",
 	"private": false,
 	"publishConfig": {

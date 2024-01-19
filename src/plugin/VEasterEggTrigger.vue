@@ -105,7 +105,6 @@ function checkPattern(e: Event | MouseEvent | KeyboardEvent): void {
 		}
 
 		emitEvent();
-		return;
 	}
 
 	reset();
@@ -139,6 +138,7 @@ function checkTarget(): void {
 
 // Reset //
 function reset(): void {
+
 	// Reset timeout and clear input keys //
 	timeout = setTimeout(() => {
 		clearTimeout(timeout);
