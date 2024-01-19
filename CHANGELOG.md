@@ -1,5 +1,10 @@
 # Change Log
-All notable changes to the "vue3-easter-egg-trigger" plugin will be documented in this file.
+All notable changes to the "vue-easter-egg-trigger" plugin will be documented in this file.
+
+## v3.0.2
+2024-01-19
+[main] (@webdevnerdstuff)
+* Fix issue when only using single key press
 
 ## v3.0.1
 2024-01-17
