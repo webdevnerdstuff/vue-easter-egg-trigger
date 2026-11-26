@@ -17,7 +17,7 @@
 		"build:docs": "vite build",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d docs",
-		"prepublishOnly": "npm run build",
+		"prepublishOnly": "pnpm build",
 		"lint": "eslint \"src/**/*.{ts,vue}\" --max-warnings 4 --no-warn-ignored",
 		"prepare": "husky",
 		"test:dev": "NODE_OPTIONS='--no-warnings' vitest",
