@@ -69,10 +69,10 @@
 	</v-app-bar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useCoreStore } from '@/stores/index';
 import { useTheme } from 'vuetify';
+import { useCoreStore } from '@/stores/index';
 
 const emit = defineEmits(['changedTheme', 'updatedDrawer']);
 

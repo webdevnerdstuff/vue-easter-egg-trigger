@@ -17,7 +17,7 @@
   <VEasterEggTrigger @triggered="triggered" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits(['triggered']);
 const showActiveClass = ref(false);
 
@@ -44,6 +44,6 @@ defineExpose({
 		name: 'Konami Code',
 		script: scriptCode,
 		template: templateCode,
-	}
+	},
 });
 </script>

@@ -51,7 +51,7 @@
 	</v-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, inject } from 'vue';
 import { useCoreStore } from '@/stores/index';
 

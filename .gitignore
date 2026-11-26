@@ -25,3 +25,6 @@ dist-ssr
 
 
 src/plugin/**/*.bk.*
+
+# Claude
+.claude/handoff/

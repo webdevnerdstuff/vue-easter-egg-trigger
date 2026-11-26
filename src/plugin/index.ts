@@ -1,5 +1,5 @@
-import type { App } from 'vue';
 import type { Props } from './types';
+import type { App } from 'vue';
 import VEasterEggTrigger from './VEasterEggTrigger.vue';
 
 

@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
+ 
 
 import VEasterEggTrigger from '../VEasterEggTrigger.vue';
 
 export * from '../index';
-
 
 
 export type Entry<T> = {
@@ -27,7 +26,7 @@ export interface Targets {
 	classNames: string[];
 }
 
-declare module "vue" {
+declare module 'vue' {
 	interface ComponentCustomProperties {
 
 	}

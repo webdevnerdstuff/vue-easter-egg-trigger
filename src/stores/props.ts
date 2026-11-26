@@ -54,7 +54,7 @@ const componentProps = [
 		type: 'number',
 	},
 	{
-		default: `['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']`,
+		default: '[\'ArrowUp\', \'ArrowUp\', \'ArrowDown\', \'ArrowDown\', \'ArrowLeft\', \'ArrowRight\', \'ArrowLeft\', \'ArrowRight\', \'b\', \'a\']',
 		desc: 'The key/click combination a user does to trigger easter egg. The default combination is the konami code.',
 		name: 'pattern',
 		type: 'string[]',
