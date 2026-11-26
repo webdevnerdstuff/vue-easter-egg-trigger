@@ -125,7 +125,7 @@
 		"vite-plugin-eslint": "^1.8.1",
 		"vite-plugin-stylelint": "^6.0.0",
 		"vite-plugin-vuetify": "^2.1.1",
-		"vitest": "^3.2.4",
+		"vitest": "^4.1.11",
 		"vue-tsc": "^2.2.12",
 		"vuetify": "^3.4.4",
 		"webfontloader": "^1.6.28"
