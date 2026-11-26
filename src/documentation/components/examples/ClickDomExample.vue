@@ -20,8 +20,6 @@
   >
     <code class="ic">strong</code> DOM element clicked
   </v-col>
-
-  <VEasterEggTrigger @triggered="triggered" />
 </template>
 
 <script setup>

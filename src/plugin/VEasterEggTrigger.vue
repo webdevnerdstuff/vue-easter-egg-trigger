@@ -31,7 +31,7 @@ watchEffect(() => {
 
 let input = reactive<string[]>([]);
 let listenElement = null as HTMLElement | null;
-let timeout: ReturnType<typeof setTimeout> = setTimeout(() => { });
+let timeout: ReturnType<typeof setTimeout> | undefined;
 const mouseEvents: string[] = reactive([
 	'click', // Works with multiple single clicks pattern
 	'dblclick', // Only works with single double click pattern set
@@ -47,6 +47,12 @@ const targets: Targets = reactive({
 
 onMounted(() => {
 	addListener();
+});
+
+onBeforeUnmount(() => {
+	destroyEvent(capturePattern as EventListener);
+	clearTimeout(timeout);
+	timeout = undefined;
 });
 
 
@@ -72,9 +78,7 @@ function addListener(): void {
 function capturePattern(e: KeyboardEvent): void {
 	const key = ref('');
 
-	if (timeout !== null) {
-		clearTimeout(timeout);
-	}
+	clearTimeout(timeout);
 
 	// -------------------- Keyboard Events //
 	if (typeof e.key !== 'undefined') {
@@ -141,10 +145,13 @@ function reset(): void {
 
 	// Reset timeout and clear input keys //
 	timeout = setTimeout(() => {
-		clearTimeout(timeout);
+		timeout = undefined;
 
 		// Clean inputs and targets //
 		input = [];
+		targets.classNames = [];
+		targets.ids = [];
+		targets.nodes = [];
 	}, Number(settings.delay));
 }
 
@@ -167,6 +174,7 @@ function emitEvent(): void {
 function destroyEvent(event: EventListener): void {
 	if (listenElement) {
 		listenElement.removeEventListener(settings.type as keyof Props, event, true);
+		listenElement = null;
 	}
 }
 </script>

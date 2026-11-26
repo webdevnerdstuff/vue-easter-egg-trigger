@@ -26,8 +26,6 @@
   >
     Listener not destroyed
   </v-col>
-
-  <VEasterEggTrigger @triggered="triggered" />
 </template>
 
 <script setup>

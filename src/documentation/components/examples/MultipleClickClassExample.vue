@@ -26,8 +26,6 @@
   >
     Class element clicked 3 times
   </v-col>
-
-  <VEasterEggTrigger @triggered="triggered" />
 </template>
 
 <script setup>

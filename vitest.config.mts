@@ -9,6 +9,8 @@ export default mergeConfig(
 			environment: 'jsdom',
 			exclude: [
 				...configDefaults.exclude,
+				'.history/**',
+				'docs/**',
 			],
 			root: fileURLToPath(new URL('./', import.meta.url)),
 			server: {

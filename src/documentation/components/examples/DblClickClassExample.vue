@@ -26,8 +26,6 @@
   >
     Class element double clicked
   </v-col>
-
-  <VEasterEggTrigger @triggered="triggered" />
 </template>
 
 <script setup>
