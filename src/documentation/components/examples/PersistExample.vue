@@ -28,7 +28,7 @@
   </v-col>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits(['triggered']);
 const showActiveClass = ref(false);
 
@@ -65,6 +65,6 @@ defineExpose({
 		name: 'Persist Prop',
 		script: scriptCode,
 		template: templateCode,
-	}
+	},
 });
 </script>

@@ -123,9 +123,10 @@
 	/>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { inject, provide, reactive, ref } from 'vue';
 import packageInfo from '../../package.json';
+import EasterEgg from '@/components/EasterEgg.vue';
 import {
 	DependenciesSection,
 	DescriptionSection,
@@ -137,7 +138,6 @@ import {
 	PropsSection,
 	UsageSection,
 } from '@/documentation/sections';
-import EasterEgg from '@/components/EasterEgg.vue';
 
 
 const props = defineProps({

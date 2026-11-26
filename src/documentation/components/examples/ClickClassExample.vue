@@ -27,7 +27,7 @@
 	</v-col>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits(['triggered']);
 const showActiveClass = ref(false);
 
@@ -63,6 +63,6 @@ defineExpose({
 		name: 'Element Class',
 		script: scriptCode,
 		template: templateCode,
-	}
+	},
 });
 </script>

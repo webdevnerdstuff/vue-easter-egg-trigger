@@ -1,14 +1,16 @@
+<template></template>
+
 <script lang="ts" setup>
-import {
-	Props,
-	Targets,
-} from '@/plugin/types';
 import {
 	includes,
 	isEqual,
 	uniq,
 } from 'lodash';
 import { globalOptions } from './';
+import {
+	Props,
+	Targets,
+} from '@/plugin/types';
 
 
 const emit = defineEmits(['triggered']);
@@ -178,5 +180,3 @@ function destroyEvent(event: EventListener): void {
 	}
 }
 </script>
-
-<template></template>

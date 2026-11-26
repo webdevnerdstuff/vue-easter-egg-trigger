@@ -60,11 +60,12 @@ export default defineConfig({
 		}),
 		vue(),
 		dts({
-			insertTypesEntry: true,
+			tsconfigPath: 'tsconfig.build.json',
 		}),
 		typescript({
 			check: true,
 			include: ['./src/plugin/**/*.vue'],
+			tsconfig: 'tsconfig.build.json',
 		}),
 		terser({
 			compress: {

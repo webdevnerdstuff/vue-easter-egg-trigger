@@ -110,7 +110,7 @@
 	</v-col>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 const emit = defineEmits(['closePicker']);
 const props = defineProps({
@@ -138,7 +138,7 @@ const getHrefId = computed(() => {
 	const id = props.code.name?.toLowerCase().replace(/\s+/g, '-');
 
 	return `examples-${id}`;
-})
+});
 
 </script>
 

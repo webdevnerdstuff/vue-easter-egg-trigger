@@ -128,7 +128,7 @@
 	</v-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { inject } from 'vue';
 import EasterEgg from '@/components/EasterEgg.vue';
 import {

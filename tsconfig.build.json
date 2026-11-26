@@ -1,0 +1,17 @@
+{
+	"extends": "./tsconfig.app.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.build.tsbuildinfo"
+	},
+	"include": [
+		"src/plugin/**/*.ts",
+		"src/plugin/**/*.tsx",
+		"src/plugin/**/*.vue"
+	],
+	"exclude": [
+		"node_modules",
+		"src/**/__tests__/**",
+		"src/**/*.spec.ts",
+		"src/**/*.test.ts"
+	]
+}

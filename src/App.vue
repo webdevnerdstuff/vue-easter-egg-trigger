@@ -28,15 +28,14 @@
 	</v-app>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import 'prismjs';
 import { provide, ref } from 'vue';
 import { useDisplay } from 'vuetify';
-import AppBar from './documentation/layout/AppBar.vue';
 import MenuComponent from './documentation/components/MenuComponent.vue';
 import DocsPage from './documentation/DocsPage.vue';
+import AppBar from './documentation/layout/AppBar.vue';
 import { useCoreStore } from './stores/index';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript.js';
 
 
