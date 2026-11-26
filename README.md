@@ -42,8 +42,7 @@ npm i @wdns/vue-easter-egg-trigger
 
 ## Dependencies
  
-[Vue 3](https://vuejs.org/)  
-[Lodash](https://lodash.com/)
+[Vue 3](https://vuejs.org/)
 
 
 ## Change Log

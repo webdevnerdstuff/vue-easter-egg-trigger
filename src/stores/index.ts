@@ -17,7 +17,6 @@ export const useCoreStore = defineStore('core', () => {
 		githubProfile: 'https://github.com/webdevnerdstuff',
 		konamiCode: 'https://en.wikipedia.org/wiki/Konami_Code',
 		license: `${repoBaseUrl}/blob/main/LICENSE.md`,
-		lodash: 'https://lodash.com/',
 		npm: `https://www.npmjs.com/package/${scopedPackageName}`,
 		vue: 'https://vuejs.org/',
 	};
