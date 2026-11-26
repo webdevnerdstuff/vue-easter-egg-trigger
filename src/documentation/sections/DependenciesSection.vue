@@ -20,13 +20,6 @@
 			>
 				Vue 3
 			</a>
-			<br />
-			<a
-				:href="store.links.lodash"
-				target="_blank"
-			>
-				Lodash
-			</a>
 		</v-col>
 	</v-row>
 </template>

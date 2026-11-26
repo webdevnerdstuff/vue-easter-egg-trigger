@@ -12,9 +12,6 @@ importers:
 
   .:
     dependencies:
-      lodash:
-        specifier: ^4.18.1
-        version: 4.18.1
       vue:
         specifier: ^3.3.9
         version: 3.5.46(typescript@5.9.3)
@@ -52,9 +49,6 @@ importers:
       '@stylistic/stylelint-plugin':
         specifier: ^5.3.1
         version: 5.3.1(stylelint@17.16.0(typescript@5.9.3))
-      '@types/lodash':
-        specifier: ^4.17.27
-        version: 4.17.27
       '@types/node':
         specifier: ^24.19.4
         version: 24.19.4
@@ -918,9 +912,6 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
-
-  '@types/lodash@4.17.27':
-    resolution: {integrity: sha512-VenMRv/eKNrspX9v3H4dbmjsrnCOYdYBG3kxXKk3dG6X+urBGcj2Prww3xw1U5K4FV/mE4h5GbWd0szEKf+9ew==}
 
   '@types/node@24.19.4':
     resolution: {integrity: sha512-s04odlR3ksJrLu7QLi+pddkWLD0RmSbcP9KuWn2/ozQKAp/YgwBC/6x9kJj8yAzZnGPfxePm7zm7nysVPCRagw==}
@@ -2151,9 +2142,6 @@ packages:
 
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
-
-  lodash@4.18.1:
-    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   lru-cache@11.5.3:
     resolution: {integrity: sha512-U4N8FgzmWxc8k1VH8Kr6lQg18U7Fjvby6wXHVRX/ZZ7IwWbRMgrRbP0Wrb5q5NVinryp4SQampHKdvtecItxUg==}
@@ -3990,8 +3978,6 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/lodash@4.17.27': {}
-
   '@types/node@24.19.4':
     dependencies:
       undici-types: 7.24.6
@@ -5303,8 +5289,6 @@ snapshots:
   lodash.memoize@4.1.2: {}
 
   lodash.uniq@4.5.0: {}
-
-  lodash@4.18.1: {}
 
   lru-cache@11.5.3: {}
 

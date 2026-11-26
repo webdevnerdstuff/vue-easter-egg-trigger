@@ -1,11 +1,6 @@
 <template></template>
 
 <script lang="ts" setup>
-import {
-	includes,
-	isEqual,
-	uniq,
-} from 'lodash';
 import { globalOptions } from './';
 import {
 	Props,
@@ -88,7 +83,7 @@ function capturePattern(e: KeyboardEvent): void {
 	}
 
 	// -------------------- Mouse Events //
-	if (includes(mouseEvents, e.type)) {
+	if (mouseEvents.includes(e.type)) {
 		const target = e.currentTarget as HTMLTextAreaElement;
 		key.value = e.type;
 
@@ -104,8 +99,8 @@ function capturePattern(e: KeyboardEvent): void {
 
 // Check the Keys Pattern //
 function checkPattern(e: Event | MouseEvent | KeyboardEvent): void {
-	if (isEqual(settings.pattern, input)) {
-		if (includes(mouseEvents, e.type)) {
+	if (isSamePattern(settings.pattern, input)) {
+		if (mouseEvents.includes(e.type)) {
 			checkTarget();
 			return;
 		}
@@ -117,6 +112,16 @@ function checkPattern(e: Event | MouseEvent | KeyboardEvent): void {
 }
 
 
+// Compare the captured input against the pattern //
+function isSamePattern(pattern: string[] | undefined, keys: string[]): boolean {
+	if (!pattern || pattern.length !== keys.length) {
+		return false;
+	}
+
+	return pattern.every((key, index) => key === keys[index]);
+}
+
+
 // Check Click Targets //
 function checkTarget(): void {
 	// Get clean egg target //
@@ -125,14 +130,14 @@ function checkTarget(): void {
 	const className = node.replace('.', '');
 
 	// Reduce targets to unique values //
-	const nodes = uniq(targets.nodes);
-	const ids = uniq(targets.ids);
-	const classNames = uniq(targets.classNames);
+	const nodes = [...new Set(targets.nodes)];
+	const ids = [...new Set(targets.ids)];
+	const classNames = [...new Set(targets.classNames)];
 
 	// Targets array should reduce down to one value, and match the clean egg target //
 	const nodeTargetsMatch = ref(nodes.length === 1 && nodes[0] === node);
 	const idTargetsMatch = ref(ids.length === 1 && ids[0] === id);
-	const classTargetsMatch = ref(classNames.length === 1 && includes(classNames[0], className));
+	const classTargetsMatch = ref(classNames.length === 1 && (classNames[0]?.includes(className) ?? false));
 
 	if (nodeTargetsMatch.value || idTargetsMatch.value || classTargetsMatch.value) {
 		emitEvent();
