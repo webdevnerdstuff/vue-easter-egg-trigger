@@ -26,8 +26,6 @@
   >
     ID element clicked
   </v-col>
-
-  <VEasterEggTrigger @triggered="triggered" />
 </template>
 
 <script setup>
